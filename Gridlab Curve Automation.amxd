@@ -1,0 +1,406 @@
+{
+ "patcher": {
+  "fileversion": 1,
+  "appversion": {
+   "major": 8,
+   "minor": 6,
+   "revision": 1,
+   "architecture": "x64",
+   "modernui": 1
+  },
+  "classnamespace": "box",
+  "rect": [34.0, 87.0, 1372.0, 779.0],
+  "bglocked": 0,
+  "openinpresentation": 1,
+  "default_fontsize": 12.0,
+  "default_fontface": 0,
+  "default_fontname": "Arial",
+  "gridonopen": 1,
+  "gridsize": [15.0, 15.0],
+  "gridsnaponopen": 1,
+  "objectsnaponopen": 1,
+  "statusbarvisible": 2,
+  "toolbarvisible": 1,
+  "lefttoolbarpinned": 0,
+  "toptoolbarpinned": 0,
+  "righttoolbarpinned": 0,
+  "bottomtoolbarpinned": 0,
+  "toolbars_unpinned_last_save": 0,
+  "tallnewobj": 0,
+  "boxanimatetime": 200,
+  "enablehscroll": 1,
+  "enablevscroll": 1,
+  "devicewidth": 490.0,
+  "description": "",
+  "digest": "",
+  "tags": "",
+  "style": "",
+  "subpatcher_template": "",
+  "assistshowspatchername": 0,
+  "boxes": [
+   {
+    "box": {
+     "id": "obj-100",
+     "maxclass": "comment",
+     "text": "CURVE AUTOMATION",
+     "presentation": 1,
+     "presentation_rect": [10.0, 5.0, 200.0, 20.0],
+     "patching_rect": [20.0, 20.0, 200.0, 20.0],
+     "fontsize": 14.0,
+     "fontface": 1,
+     "numinlets": 1,
+     "numoutlets": 0
+    }
+   },
+   {
+    "box": {
+     "id": "obj-1",
+     "maxclass": "live.dial",
+     "parameter_enable": 1,
+     "patching_rect": [30.0, 80.0, 50.0, 48.0],
+     "presentation": 1,
+     "presentation_rect": [10.0, 30.0, 50.0, 48.0],
+     "varname": "Length",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Length",
+       "parameter_shortname": "Length",
+       "parameter_type": 0,
+       "parameter_unitstyle": 2,
+       "parameter_mmin": 100.0,
+       "parameter_mmax": 10000.0,
+       "parameter_initial": 1000.0,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-2",
+     "maxclass": "live.dial",
+     "parameter_enable": 1,
+     "patching_rect": [90.0, 80.0, 50.0, 48.0],
+     "presentation": 1,
+     "presentation_rect": [70.0, 30.0, 50.0, 48.0],
+     "varname": "Amplitude",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Amplitude",
+       "parameter_shortname": "Amp",
+       "parameter_type": 0,
+       "parameter_unitstyle": 5,
+       "parameter_mmin": 0.0,
+       "parameter_mmax": 1.0,
+       "parameter_initial": 1.0,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-3",
+     "maxclass": "live.dial",
+     "parameter_enable": 1,
+     "patching_rect": [150.0, 80.0, 50.0, 48.0],
+     "presentation": 1,
+     "presentation_rect": [130.0, 30.0, 50.0, 48.0],
+     "varname": "Smoothness",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Smoothness",
+       "parameter_shortname": "Smooth",
+       "parameter_type": 0,
+       "parameter_unitstyle": 5,
+       "parameter_mmin": 0.0,
+       "parameter_mmax": 1.0,
+       "parameter_initial": 0.3,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-4",
+     "maxclass": "live.menu",
+     "parameter_enable": 1,
+     "patching_rect": [210.0, 80.0, 120.0, 18.0],
+     "presentation": 1,
+     "presentation_rect": [10.0, 85.0, 120.0, 18.0],
+     "varname": "Shape",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_enum": ["Sine", "Triangle", "Saw Up", "Saw Down", "Bounce", "Ease In", "Ease Out", "Ease In-Out", "Random", "Exponential"],
+       "parameter_longname": "Shape",
+       "parameter_shortname": "Shape",
+       "parameter_type": 2,
+       "parameter_initial": 0,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 3,
+     "outlettype": ["", "", "int"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-5",
+     "maxclass": "live.dial",
+     "parameter_enable": 1,
+     "patching_rect": [210.0, 150.0, 50.0, 48.0],
+     "presentation": 1,
+     "presentation_rect": [190.0, 30.0, 50.0, 48.0],
+     "varname": "Frequency",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Frequency",
+       "parameter_shortname": "Freq",
+       "parameter_type": 0,
+       "parameter_unitstyle": 3,
+       "parameter_mmin": 0.1,
+       "parameter_mmax": 50.0,
+       "parameter_initial": 1.0,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-6",
+     "maxclass": "live.dial",
+     "parameter_enable": 1,
+     "patching_rect": [270.0, 150.0, 50.0, 48.0],
+     "presentation": 1,
+     "presentation_rect": [250.0, 30.0, 50.0, 48.0],
+     "varname": "Bounce",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Bounce Decay",
+       "parameter_shortname": "Bounce",
+       "parameter_type": 0,
+       "parameter_unitstyle": 5,
+       "parameter_mmin": 0.0,
+       "parameter_mmax": 0.95,
+       "parameter_initial": 0.7,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-7",
+     "maxclass": "live.dial",
+     "parameter_enable": 1,
+     "patching_rect": [330.0, 150.0, 50.0, 48.0],
+     "presentation": 1,
+     "presentation_rect": [310.0, 30.0, 50.0, 48.0],
+     "varname": "Curve",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Curve Power",
+       "parameter_shortname": "Curve",
+       "parameter_type": 0,
+       "parameter_unitstyle": 1,
+       "parameter_mmin": -5.0,
+       "parameter_mmax": 5.0,
+       "parameter_initial": 0.0,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-12",
+     "maxclass": "live.toggle",
+     "parameter_enable": 1,
+     "patching_rect": [30.0, 230.0, 40.0, 40.0],
+     "presentation": 1,
+     "presentation_rect": [370.0, 30.0, 50.0, 48.0],
+     "varname": "Run",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Run",
+       "parameter_shortname": "Run",
+       "parameter_type": 2,
+       "parameter_initial": 0,
+       "parameter_initial_enable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [""]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-11",
+     "maxclass": "newobj",
+     "text": "metro 10",
+     "patching_rect": [30.0, 290.0, 65.0, 22.0],
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": ["bang"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-15",
+     "maxclass": "newobj",
+     "text": "pak 0 1000. 1. 0.5 0 1. 0.7 0.",
+     "patching_rect": [30.0, 340.0, 400.0, 22.0],
+     "numinlets": 8,
+     "numoutlets": 1,
+     "outlettype": [""]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-10",
+     "maxclass": "jsui",
+     "jsarguments": [],
+     "patching_rect": [30.0, 390.0, 320.0, 240.0],
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [""],
+     "presentation": 0,
+     "filename": "curve_engine.js"
+    }
+   },
+   {
+    "box": {
+     "id": "obj-16",
+     "maxclass": "newobj",
+     "text": "scale 0. 1. 0 127",
+     "patching_rect": [30.0, 650.0, 120.0, 22.0],
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [""]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-21",
+     "maxclass": "live.numbox",
+     "parameter_enable": 1,
+     "patching_rect": [30.0, 700.0, 50.0, 15.0],
+     "presentation": 1,
+     "presentation_rect": [435.0, 50.0, 40.0, 15.0],
+     "varname": "Output",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Output",
+       "parameter_shortname": "Out",
+       "parameter_type": 0,
+       "parameter_unitstyle": 0,
+       "parameter_mmin": 0.0,
+       "parameter_mmax": 127.0
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-20",
+     "maxclass": "live.numbox",
+     "parameter_enable": 1,
+     "patching_rect": [30.0, 750.0, 50.0, 15.0],
+     "presentation": 1,
+     "presentation_rect": [435.0, 30.0, 40.0, 15.0],
+     "varname": "LiveOut",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_longname": "Live Output",
+       "parameter_shortname": "Live",
+       "parameter_type": 0,
+       "parameter_unitstyle": 5,
+       "parameter_mmin": 0.0,
+       "parameter_mmax": 1.0,
+       "parameter_mappable": 1
+      }
+     },
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", "float"]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-22",
+     "maxclass": "multislider",
+     "patching_rect": [500.0, 80.0, 400.0, 120.0],
+     "presentation": 1,
+     "presentation_rect": [10.0, 110.0, 465.0, 100.0],
+     "setminmax": [0.0, 1.0],
+     "slidercolor": [0.0, 0.7, 1.0, 0.9],
+     "bgcolor": [0.2, 0.2, 0.2, 1.0],
+     "size": 128,
+     "settype": 0,
+     "spacing": 1,
+     "thickness": 3,
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": ["", ""]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-30",
+     "maxclass": "comment",
+     "text": "Right-click Live Output to map to any parameter",
+     "presentation": 1,
+     "presentation_rect": [135.0, 85.0, 340.0, 20.0],
+     "patching_rect": [600.0, 20.0, 300.0, 20.0],
+     "fontsize": 10.0,
+     "numinlets": 1,
+     "numoutlets": 0
+    }
+   }
+  ],
+  "lines": [
+   {"patchline": {"source": ["obj-12", 0], "destination": ["obj-11", 0]}},
+   {"patchline": {"source": ["obj-11", 0], "destination": ["obj-15", 0]}},
+   {"patchline": {"source": ["obj-1", 0], "destination": ["obj-15", 1]}},
+   {"patchline": {"source": ["obj-2", 0], "destination": ["obj-15", 2]}},
+   {"patchline": {"source": ["obj-3", 0], "destination": ["obj-15", 3]}},
+   {"patchline": {"source": ["obj-4", 0], "destination": ["obj-15", 4]}},
+   {"patchline": {"source": ["obj-5", 0], "destination": ["obj-15", 5]}},
+   {"patchline": {"source": ["obj-6", 0], "destination": ["obj-15", 6]}},
+   {"patchline": {"source": ["obj-7", 0], "destination": ["obj-15", 7]}},
+   {"patchline": {"source": ["obj-15", 0], "destination": ["obj-10", 0]}},
+   {"patchline": {"source": ["obj-10", 0], "destination": ["obj-16", 0]}},
+   {"patchline": {"source": ["obj-10", 0], "destination": ["obj-20", 0]}},
+   {"patchline": {"source": ["obj-16", 0], "destination": ["obj-21", 0]}},
+   {"patchline": {"source": ["obj-10", 0], "destination": ["obj-22", 0]}}
+  ]
+ },
+ "code": {
+  "curve_engine.js": "autowatch=1;inlets=1;outlets=1;var length=1000,amplitude=1,smoothness=.5,shape=0,frequency=1,bounceDecay=.7,curvePower=0,phase=0,time=0,lastValue=0,randomBuffer=[],bounceVelocity=0,bouncePosition=1;function initRandomBuffer(){randomBuffer=[];for(var e=0;e<128;e++)randomBuffer.push(Math.random())}function bang(){var e=generateCurveValue();outlet(0,e)}function setLength(e){length=Math.max(100,Math.min(10000,e))}function setAmplitude(e){amplitude=Math.max(0,Math.min(1,e))}function setSmoothness(e){smoothness=Math.max(0,Math.min(1,e))}function setShape(e){shape=Math.floor(e),4===shape&&(bouncePosition=1,bounceVelocity=0),8===shape&&initRandomBuffer()}function setFrequency(e){frequency=Math.max(.1,Math.min(50,e))}function setBounce(e){bounceDecay=Math.max(0,Math.min(.95,e))}function setCurve(e){curvePower=Math.max(-5,Math.min(5,e))}function msg_int(e){bang()}function msg_float(e){bang()}function list(){for(var e=arrayfromargs(arguments),a=0;a<e.length;a+=2){var t=e[a],n=e[a+1];switch(t){case 0:setLength(n);break;case 1:setAmplitude(n);break;case 2:setSmoothness(n);break;case 3:setShape(n);break;case 4:setFrequency(n);break;case 5:setBounce(n);break;case 6:setCurve(n)}}}function easeInQuad(e){return e*e}function easeOutQuad(e){return e*(2-e)}function easeInOutQuad(e){return e<.5?2*e*e:-1+(4-2*e)*e}function easeInCubic(e){return e*e*e}function easeOutCubic(e){return--e*e*e+1}function easeInOutCubic(e){return e<.5?4*e*e*e:(e-1)*(2*e-2)*(2*e-2)+1}function applyCurvePower(e,a){return 0===a?e:a>0?Math.pow(e,1+a):Math.pow(e,1/(1-a))}function updateBounce(){var e=.05,a=bounceDecay;return bounceVelocity-=e,bouncePosition+=bounceVelocity,bouncePosition<=0&&(bouncePosition=0,bounceVelocity=-bounceVelocity*a,Math.abs(bounceVelocity)<.01&&(bouncePosition=1,bounceVelocity=0)),Math.max(0,Math.min(1,bouncePosition))}function generateCurveValue(){var e=frequency/(length/10);phase+=e,phase>=1&&(phase-=Math.floor(phase),4===shape&&(bouncePosition=1,bounceVelocity=0),8===shape&&initRandomBuffer());var a=0;switch(shape){case 0:a=(Math.sin(2*phase*Math.PI)+1)/2;break;case 1:a=phase<.5?2*phase:2-2*phase;break;case 2:a=phase;break;case 3:a=1-phase;break;case 4:a=updateBounce();break;case 5:a=easeInCubic(phase);break;case 6:a=easeOutCubic(phase);break;case 7:a=easeInOutCubic(phase);break;case 8:var t=Math.floor(phase*randomBuffer.length);a=randomBuffer[t%randomBuffer.length];break;case 9:a=(Math.exp(3*phase)-1)/(Math.exp(3)-1);break;default:a=phase}a=applyCurvePower(a,curvePower);var n=1-smoothness,o=a*n+lastValue*smoothness;return o*=amplitude,lastValue=o,o}function reset(){phase=0,time=0,lastValue=0,bouncePosition=1,bounceVelocity=0,initRandomBuffer()}function getWaveform(){for(var e=[],a=phase,t=lastValue,n=0;n<128;n++){var o=n/128,i=0;switch(shape){case 0:i=(Math.sin(2*o*Math.PI)+1)/2;break;case 1:i=o<.5?2*o:2-2*o;break;case 2:i=o;break;case 3:i=1-o;break;case 5:i=easeInCubic(o);break;case 6:i=easeOutCubic(o);break;case 7:i=easeInOutCubic(o);break;case 8:i=randomBuffer[n%randomBuffer.length];break;case 9:i=(Math.exp(3*o)-1)/(Math.exp(3)-1);break;default:i=o}i=applyCurvePower(i,curvePower)*amplitude,e.push(i)}return phase=a,lastValue=t,outlet(0,e)}initRandomBuffer();"
+ }
+}
