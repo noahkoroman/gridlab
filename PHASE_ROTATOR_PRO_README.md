@@ -10,10 +10,11 @@ An enhanced Max for Live phase rotator device with dual oscilloscope visualizati
 - High-resolution display with 32 calculation points for accurate waveform representation
 - Range: -1.0 to 1.0 (standard audio range)
 
-### 2. **Dual Track Input with Track Selector**
+### 2. **Dual Track Input with Dynamic Track Selector**
 - Main track input via plugin~ (standard Max for Live audio routing)
-- **Track Selector Dropdown**: Choose between "Main Track" or "External Input" for Oscilloscope 2
-- **Drag-and-Drop Track Selection**: Drag any Ableton Live track onto the track selector area
+- **Dynamic Track Dropdown**: Automatically populates with all tracks from your Live set
+- **One-Click Selection**: Choose any track by name from the dropdown menu
+- **Live.tap~ Integration**: Direct audio routing from any track in your project
 - Track 2 Mix control (0-100%) to blend comparison signal
 - Perfect for A/B comparison and phase relationship analysis between different tracks
 
@@ -34,15 +35,15 @@ An enhanced Max for Live phase rotator device with dual oscilloscope visualizati
 4. Choose rotation type: **Allpass** for subtle stereo widening, **Hilbert** for dramatic effects
 
 ### Two-Track Comparison Mode
-1. **Select the track source for Oscilloscope 2:**
-   - **Option A - Drag & Drop**: Drag any Ableton Live track from your set into the "Track 2 Source" drop area (below Oscilloscope 2)
-   - **Option B - Dropdown Menu**: Use the "Scope 2 Source" dropdown to choose between:
-     - **Main Track**: Monitor the device's host track (same as Oscilloscope 1)
-     - **External Input**: Monitor audio from the dragged track or external routing
+1. **Select the track for Oscilloscope 2:**
+   - Open the **Track Selector dropdown** (below Oscilloscope 2)
+   - The dropdown automatically populates with all tracks in your Live set
+   - Click to select any track by name
+   - The device uses `live.tap~` to route audio directly from the selected track
 2. **Adjust Track 2 Mix** to blend the comparison signal (0% = off, 100% = full mix)
-3. **Monitor both oscilloscopes** to visualize phase relationships in real-time
-   - Green scope (left) shows your main track signal
-   - Blue scope (right) shows the selected comparison track
+3. **Monitor both oscilloscopes** to visualize phase relationships in real-time:
+   - **Green scope (left)**: Shows your main track signal (where the device is placed)
+   - **Blue scope (right)**: Shows the selected track's signal from the dropdown
 
 ### Oscilloscope Interpretation
 - **In-phase signals**: Waveforms move together
@@ -82,12 +83,14 @@ User Input (-100 to 100)
 │   Allpass/Hilbert       └──────────┘  └──────────┘       │
 │                         Track 1         Track 2           │
 │                         (Main)         (Compare)          │
+│                                                            │
+│                                      Select Track for     │
+│                                      Oscilloscope 2:      │
 │                                      ┌─────────────────┐  │
-│                                      │ [Drag Track Here│  │
-│                                      │  or use menu ▼] │  │
+│                                      │ 1-Audio       ▼ │  │
+│                                      │ 2-Bass          │  │
+│                                      │ 3-Drums         │  │
 │                                      └─────────────────┘  │
-│                                      [Scope 2 Source ▼]   │
-│                                       Main/External       │
 │  Phase Rotator Pro - Dual Oscilloscope with Track Select │
 └──────────────────────────────────────────────────────────┘
 ```
@@ -129,11 +132,18 @@ User Input (-100 to 100)
 - Ensure calccount is set (default: 32)
 
 **Track 2 oscilloscope not displaying:**
-- Select "External Input" from the "Scope 2 Source" dropdown
-- Drag a track into the "Track 2 Source" area (look for the drag-and-drop zone below Oscilloscope 2)
-- Verify the selected track has audio playing
-- Ensure the dragged track is not muted or frozen in Live
-- Try selecting "Main Track" to verify the oscilloscope is working
+- Open the track selector dropdown (below Oscilloscope 2)
+- Verify tracks are listed in the dropdown - if not, reload the device or restart Live
+- Select a track from the dropdown that has audio playing
+- Ensure the selected track is not muted or frozen in Live
+- Check that the selected track has actual audio output (not just MIDI)
+- Try selecting a different track to verify the tap is working
+
+**Dropdown not showing tracks:**
+- The dropdown populates on device load - if empty, try reloading the device
+- Ensure you're using this as a Max for Live device in Ableton Live (not standalone Max)
+- Check that `live.thisdevice` is properly connected (visible in unlocked patch view)
+- Try opening and closing the patch in edit mode to trigger a refresh
 
 ## Credits
 
