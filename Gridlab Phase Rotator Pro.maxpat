@@ -52,6 +52,120 @@
 			}
 , 			{
 				"box" : 				{
+					"id" : "obj-200",
+					"maxclass" : "live.drop",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 750.0, 50.0, 120.0, 60.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 360.0, 140.0, 200.0, 40.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_longname" : "Track 2 Source",
+							"parameter_shortname" : "Track 2 Source",
+							"parameter_type" : 4,
+							"parameter_invisible" : 1
+						}
+
+					}
+,
+					"varname" : "Track2Source"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-201",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 750.0, 130.0, 150.0, 22.0 ],
+					"text" : "prepend path"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-202",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 750.0, 160.0, 100.0, 22.0 ],
+					"text" : "live.path"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-203",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "signal", "signal" ],
+					"patching_rect" : [ 750.0, 200.0, 100.0, 22.0 ],
+					"text" : "plugout~ 1 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-204",
+					"maxclass" : "live.menu",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "float" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 750.0, 250.0, 120.0, 15.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 360.0, 185.0, 200.0, 15.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_enum" : [ "Main Track", "External Input" ],
+							"parameter_longname" : "Scope 2 Source",
+							"parameter_shortname" : "Scope 2 Source",
+							"parameter_type" : 2,
+							"parameter_initial_enable" : 1,
+							"parameter_initial" : [ 1.0 ]
+						}
+
+					}
+,
+					"varname" : "Scope2Source"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-205",
+					"maxclass" : "newobj",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 400.0, 550.0, 100.0, 22.0 ],
+					"text" : "selector~ 2 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-206",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 750.0, 20.0, 200.0, 20.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 360.0, 205.0, 200.0, 20.0 ],
+					"text" : "Drag track here or use dropdown",
+					"textcolor" : [ 0.5, 0.5, 0.5, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-2",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -473,15 +587,64 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-101", 0 ],
+					"destination" : [ "obj-205", 2 ],
 					"source" : [ "obj-3", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-101", 0 ],
+					"destination" : [ "obj-205", 2 ],
 					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-201", 0 ],
+					"source" : [ "obj-200", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-202", 0 ],
+					"source" : [ "obj-201", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-203", 0 ],
+					"source" : [ "obj-202", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-205", 1 ],
+					"source" : [ "obj-203", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-205", 1 ],
+					"source" : [ "obj-203", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-205", 0 ],
+					"source" : [ "obj-204", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-101", 0 ],
+					"source" : [ "obj-205", 0 ]
 				}
 
 			}
@@ -712,6 +875,8 @@
 			"obj-10" : [ "Rotate", "Rotate", 0 ],
 			"obj-11" : [ "Rotation Type", "Rotation Type", 0 ],
 			"obj-80" : [ "Track 2 Mix", "Trk2 Mix", 0 ],
+			"obj-200" : [ "Track 2 Source", "Track 2 Source", 0 ],
+			"obj-204" : [ "Scope 2 Source", "Scope 2 Source", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
 					"index" : 0,

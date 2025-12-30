@@ -10,11 +10,12 @@ An enhanced Max for Live phase rotator device with dual oscilloscope visualizati
 - High-resolution display with 32 calculation points for accurate waveform representation
 - Range: -1.0 to 1.0 (standard audio range)
 
-### 2. **Dual Track Input**
+### 2. **Dual Track Input with Track Selector**
 - Main track input via plugin~ (standard Max for Live audio routing)
-- Secondary track input via inlet objects for external audio comparison
+- **Track Selector Dropdown**: Choose between "Main Track" or "External Input" for Oscilloscope 2
+- **Drag-and-Drop Track Selection**: Drag any Ableton Live track onto the track selector area
 - Track 2 Mix control (0-100%) to blend comparison signal
-- Perfect for A/B comparison and phase relationship analysis
+- Perfect for A/B comparison and phase relationship analysis between different tracks
 
 ### 3. **Enhanced Phase Rotation**
 - **Rotation Type Selection:**
@@ -33,11 +34,15 @@ An enhanced Max for Live phase rotator device with dual oscilloscope visualizati
 4. Choose rotation type: **Allpass** for subtle stereo widening, **Hilbert** for dramatic effects
 
 ### Two-Track Comparison Mode
-1. **Route external audio to Track 2 inputs:**
-   - In Max: Connect external audio sources to inlet objects (obj-3 and obj-4)
-   - In Live: Use audio routing or sends to feed a second track's signal
+1. **Select the track source for Oscilloscope 2:**
+   - **Option A - Drag & Drop**: Drag any Ableton Live track from your set into the "Track 2 Source" drop area (below Oscilloscope 2)
+   - **Option B - Dropdown Menu**: Use the "Scope 2 Source" dropdown to choose between:
+     - **Main Track**: Monitor the device's host track (same as Oscilloscope 1)
+     - **External Input**: Monitor audio from the dragged track or external routing
 2. **Adjust Track 2 Mix** to blend the comparison signal (0% = off, 100% = full mix)
-3. **Monitor both oscilloscopes** to visualize phase relationships
+3. **Monitor both oscilloscopes** to visualize phase relationships in real-time
+   - Green scope (left) shows your main track signal
+   - Blue scope (right) shows the selected comparison track
 
 ### Oscilloscope Interpretation
 - **In-phase signals**: Waveforms move together
@@ -69,25 +74,33 @@ User Input (-100 to 100)
 ## UI Layout (Presentation Mode)
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  [Rotate]  [Trk2 Mix]  ┌──────────┐  ┌──────────┐  │
-│    Dial       Dial      │ Track 1  │  │ Track 2  │  │
-│                         │  Scope   │  │  Scope   │  │
-│  [Rotation Type ▼]      │ (Green)  │  │  (Blue)  │  │
-│   Allpass/Hilbert       └──────────┘  └──────────┘  │
-│                         Track 1         Track 2      │
-│                         (Main)         (Compare)     │
-│  Phase Rotator Pro - Dual Oscilloscope              │
-└─────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│  [Rotate]  [Trk2 Mix]  ┌──────────┐  ┌──────────┐       │
+│    Dial       Dial      │ Track 1  │  │ Track 2  │       │
+│                         │  Scope   │  │  Scope   │       │
+│  [Rotation Type ▼]      │ (Green)  │  │  (Blue)  │       │
+│   Allpass/Hilbert       └──────────┘  └──────────┘       │
+│                         Track 1         Track 2           │
+│                         (Main)         (Compare)          │
+│                                      ┌─────────────────┐  │
+│                                      │ [Drag Track Here│  │
+│                                      │  or use menu ▼] │  │
+│                                      └─────────────────┘  │
+│                                      [Scope 2 Source ▼]   │
+│                                       Main/External       │
+│  Phase Rotator Pro - Dual Oscilloscope with Track Select │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ## Creative Applications
 
 1. **Stereo Width Enhancement**: Subtle rotation (10-30%) with Allpass mode
-2. **Phase Correction**: Compare tracks to identify and fix phase issues
-3. **Special Effects**: Extreme rotation (70-100%) with Hilbert for dramatic stereo movement
-4. **Mix Analysis**: Route different mix versions to compare phase relationships
-5. **Mastering**: Fine-tune stereo image with visual feedback
+2. **Phase Correction**: Compare tracks to identify and fix phase issues using the track selector
+3. **A/B Mix Comparison**: Drag different mix versions into Oscilloscope 2 to compare phase relationships
+4. **Stem Analysis**: Monitor individual stems against the main mix to check phase coherence
+5. **Special Effects**: Extreme rotation (70-100%) with Hilbert for dramatic stereo movement
+6. **Mastering**: Fine-tune stereo image with visual feedback from dual oscilloscopes
+7. **Live Performance**: Switch between different tracks in Oscilloscope 2 to monitor phase during transitions
 
 ## Saving as .amxd (Ableton Live)
 
@@ -115,10 +128,12 @@ User Input (-100 to 100)
 - Check scope~ range settings (-1.0 to 1.0)
 - Ensure calccount is set (default: 32)
 
-**Track 2 not visible:**
-- Verify external audio is routed to Track 2 inputs
-- Increase Track 2 Mix dial
-- Check inlet connections in Max
+**Track 2 oscilloscope not displaying:**
+- Select "External Input" from the "Scope 2 Source" dropdown
+- Drag a track into the "Track 2 Source" area (look for the drag-and-drop zone below Oscilloscope 2)
+- Verify the selected track has audio playing
+- Ensure the dragged track is not muted or frozen in Live
+- Try selecting "Main Track" to verify the oscilloscope is working
 
 ## Credits
 
